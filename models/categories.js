@@ -46,16 +46,10 @@ class Categories {
 
   create(record) {
     // Call the appropriate mongoose method to create a new record
-    let category = new CategoryModel(record);
- 
+    let category = new categoryModel(record);
+    console.log(category);
     // save model to database
-    category.save(function (err, category) {
-      if (err){
-        return console.error(err);
-      }
-      return category
-    });
-
+    category.save()
   }
 
   update(_id, record) {
