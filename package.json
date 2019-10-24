@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose",
     "test-watch": "jest --watchAll --verbose",
-    "lint": "npm run lint"
+    "lint": "eslint '**/*.js'"
   },
   "jest": {
     "testEnvironment": "node"
