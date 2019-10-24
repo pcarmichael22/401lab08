@@ -1,6 +1,6 @@
 'use strict';
 
-const CategoryModel = require('./categories-schema');
+const categoryModel = require('./categories-schema');
 
 // Where is our schema defined?
 // How do we get it in here so we can run methods on it?
@@ -14,17 +14,28 @@ class Categories {
 // ID's are always unique, so you can never get mroe than one document when using findById)
 
   get(_id) {
+    // if(_id){
+    //   return categoryModel.findById(_id, function (err, category){
+    //     if(err){
+    //       console.error(err)
+    //       return
+    //     }
+    //     return category
+    //   })
+    // }
+
     if(_id){
-      categoryModel.findById(_id, function (err, category){
+      const mypromise = categoryModel.findById(_id, function (err, category){
         if(err){
           console.error(err)
           return
         }
         return category
       })
+      return mypromise
     }
     //Should the array contain mongoose documents or JSON objects??
-    categoryModel.find({}, function (err, categories){
+    return categoryModel.find({}, function (err, categories){
       if(err){
         console.error(err)
         return

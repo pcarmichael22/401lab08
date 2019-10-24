@@ -21,7 +21,7 @@ const categories = new Categories();
 // Prepare the express app
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/class08');
+mongoose.connect('mongodb://localhost:27017/class08', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // App Level MW
 app.use(cors());
